@@ -1,0 +1,65 @@
+import React, { useState, useEffect } from 'react'
+
+export default function Chatbot() {
+  const [messages, setMessages] = useState([
+    { sender: 'bot', text: 'Hola, soy tu asistente educativo. ¿Qué quieres aprender hoy?' }
+  ])
+  const [input, setInput] = useState('')
+
+  const handleSend = async () => {
+    if (!input.trim()) return
+    
+    // Mensaje del usuario
+    setMessages(prev => [...prev, { sender: 'user', text: input }])
+    setInput('')
+    
+    // Simulación de respuesta de IA
+    setTimeout(() => {
+      const responses = {
+        'hora': `Son las ${new Date().toLocaleTimeString()}`,
+        'capital de chile': 'La capital de Chile es Santiago',
+        'fotosíntesis': 'La fotosíntesis es el proceso por el cual las plantas convierten la luz solar en energía.',
+        'ecuación cuadrática': 'Una ecuación cuadrática se resuelve con la fórmula: x = [-b ± √(b²-4ac)]/2a'
+      }
+      
+      const botResponse = Object.entries(responses).find(([key]) => 
+        input.toLowerCase().includes(key)
+      )?.[1] || 'Puedo ayudarte con: hora, capital de Chile, fotosíntesis o ecuaciones cuadráticas'
+      
+      setMessages(prev => [...prev, { sender: 'bot', text: botResponse }])
+    }, 1000)
+  }
+
+  return (
+    <div className="fixed bottom-4 right-4 bg-white text-gray-800 rounded-lg shadow-xl w-80 overflow-hidden">
+      <div className="bg-space-blue text-white p-3 font-semibold">
+        Asistente Educativo
+      </div>
+      <div className="h-64 p-3 overflow-y-auto space-y-2">
+        {messages.map((msg, i) => (
+          <div key={i} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div className={`max-w-xs p-2 rounded-lg ${msg.sender === 'user' ? 'bg-blue-100' : 'bg-gray-100'}`}>
+              {msg.text}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="p-3 border-t flex">
+        <input
+          type="text"
+          className="flex-1 border rounded-l px-3 py-2 focus:outline-none focus:ring-1 focus:ring-space-blue"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+          placeholder="Escribe tu pregunta..."
+        />
+        <button 
+          onClick={handleSend}
+          className="bg-space-blue text-white px-4 rounded-r hover:bg-blue-700 transition"
+        >
+          Enviar
+        </button>
+      </div>
+    </div>
+  )
+}

@@ -1,0 +1,139 @@
+@import './variables.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   VARIABLES GLOBAL ROOT
+=========================== */
+@layer base {
+  :root {
+    color-scheme: light dark;
+    --color-space-light-opaque: rgba(51, 65, 85, 0.8);
+  }
+}
+
+/* =========================
+   SCROLLBAR PERSONALIZADA
+=========================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #334155;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #475569;
+}
+
+/* =========================
+   SELECCIÓN DE TEXTO
+=========================== */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+/* =========================
+   ESTILOS BASE (html, body)
+=========================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #0f172a;
+    color: #f1f5f9;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* =========================
+   COMPONENTES PERSONALIZADOS
+=========================== */
+@layer components {
+  /* === Inputs adaptativos === */
+  input,
+  textarea,
+  select {
+    @apply w-full p-3 rounded-md border transition;
+
+    /* Claro */
+    @apply bg-white text-gray-900 border-gray-300 placeholder:text-gray-500;
+
+    /* Oscuro */
+    @apply dark:bg-space-cadet-dark dark:text-gray-100 dark:border-space-light dark:placeholder:text-gray-400;
+
+    @apply focus:outline-none focus:ring-2 focus:ring-neon-blue;
+  }
+
+  /* === Botón primario adaptativo === */
+  .btn-primary {
+    @apply px-6 py-2 rounded-lg font-bold transition-colors duration-200;
+
+    /* Claro */
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+
+    /* Oscuro */
+    @apply dark:bg-neon-blue dark:text-space-dark dark:hover:bg-neon-blue-dark;
+
+    @apply focus:outline-none focus:ring-2 focus:ring-neon-blue focus:ring-opacity-50;
+  }
+
+  /* === Botón secundario adaptativo === */
+  .btn-secondary {
+    @apply px-5 py-2 rounded-md font-semibold transition-colors duration-200;
+
+    /* Claro */
+    @apply bg-gray-100 text-gray-900 hover:bg-gray-200;
+
+    /* Oscuro */
+    @apply dark:bg-space-light dark:text-gray-100 dark:hover:bg-space-lighter;
+  }
+
+  /* === Tarjeta adaptativa === */
+  .card {
+    @apply rounded-xl border p-4 shadow transition-all duration-300;
+
+    /* Claro */
+    @apply bg-white text-gray-900 border-gray-300 hover:border-blue-400;
+
+    /* Oscuro */
+    @apply dark:bg-space-cadet-dark dark:text-text-light dark:border-space-light dark:hover:border-neon-blue/30;
+  }
+}
+
+/* =========================
+   UTILIDADES PERSONALIZADAS
+=========================== */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .text-muted {
+    color: #94a3b8;
+  }
+
+  .bg-blur {
+    backdrop-filter: blur(6px);
+    background-color: rgba(15, 23, 42, 0.6);
+  }
+}

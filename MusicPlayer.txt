@@ -1,0 +1,109 @@
+import React, { useRef, useState } from 'react'
+import { FaPlay, FaPause, FaStepForward, FaStepBackward, FaVolumeUp, FaVolumeMute } from 'react-icons/fa'
+
+const tracks = [
+  { name: 'Concentración', file: '/assets/audio/musica1.mp3', emoji: '🎧' },
+  { name: 'Naturaleza', file: '/assets/audio/musica2.mp3', emoji: '🌿' },
+  { name: 'Lo-Fi Suave', file: '/assets/audio/musica3.mp3', emoji: '🎵' }
+]
+
+export default function MusicPlayer() {
+  const audioRef = useRef(null)
+  const [currentTrack, setCurrentTrack] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [volume, setVolume] = useState(0.7)
+  const [isMuted, setIsMuted] = useState(false)
+
+  const togglePlay = () => {
+    if (isPlaying) {
+      audioRef.current.pause()
+    } else {
+      audioRef.current.play()
+    }
+    setIsPlaying(!isPlaying)
+  }
+
+  const nextTrack = () => {
+    const next = (currentTrack + 1) % tracks.length
+    setCurrentTrack(next)
+    if (isPlaying) {
+      audioRef.current.src = tracks[next].file
+      audioRef.current.play()
+    }
+  }
+
+  const prevTrack = () => {
+    const prev = (currentTrack - 1 + tracks.length) % tracks.length
+    setCurrentTrack(prev)
+    if (isPlaying) {
+      audioRef.current.src = tracks[prev].file
+      audioRef.current.play()
+    }
+  }
+
+  const handleVolumeChange = (e) => {
+    const newVolume = e.target.value
+    setVolume(newVolume)
+    audioRef.current.volume = newVolume
+    setIsMuted(newVolume == 0)
+  }
+
+  const toggleMute = () => {
+    if (isMuted) {
+      audioRef.current.volume = volume
+    } else {
+      audioRef.current.volume = 0
+    }
+    setIsMuted(!isMuted)
+  }
+
+  return (
+    <div className="fixed bottom-4 left-4 bg-white/10 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20 w-72">
+      <div className="flex justify-between items-center mb-3">
+        <h3 className="font-bold flex items-center gap-2">
+          <span className="text-xl">{tracks[currentTrack].emoji}</span>
+          Música para estudiar
+        </h3>
+        <button onClick={toggleMute} className="text-white">
+          {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+        </button>
+      </div>
+      
+      <div className="mb-2">
+        <p className="font-medium">{tracks[currentTrack].name}</p>
+      </div>
+      
+      <div className="flex justify-center items-center gap-4 mb-3">
+        <button onClick={prevTrack} className="text-white hover:text-purple-300 transition-colors">
+          <FaStepBackward />
+        </button>
+        <button 
+          onClick={togglePlay} 
+          className="bg-purple-600 hover:bg-purple-500 rounded-full p-3 flex items-center justify-center transition-colors"
+        >
+          {isPlaying ? <FaPause /> : <FaPlay />}
+        </button>
+        <button onClick={nextTrack} className="text-white hover:text-purple-300 transition-colors">
+          <FaStepForward />
+        </button>
+      </div>
+      
+      <input
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value={isMuted ? 0 : volume}
+        onChange={handleVolumeChange}
+        className="w-full accent-purple-500"
+      />
+      
+      <audio
+        ref={audioRef}
+        src={tracks[currentTrack].file}
+        loop
+        onEnded={nextTrack}
+      />
+    </div>
+  )
+}

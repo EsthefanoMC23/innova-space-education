@@ -1,0 +1,75 @@
+/* src/components/courses/SkeletonCourseCard.css */
+.skeleton-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.skeleton-image {
+  height: 160px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-content {
+  padding: 16px;
+}
+
+.skeleton-badge {
+  width: 60px;
+  height: 20px;
+  background: #f0f0f0;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.skeleton-title {
+  width: 80%;
+  height: 24px;
+  background: #f0f0f0;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+
+.skeleton-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.skeleton-instructor {
+  width: 60%;
+  height: 16px;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.skeleton-rating {
+  width: 30%;
+  height: 16px;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.skeleton-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skeleton-duration, .skeleton-students {
+  width: 40%;
+  height: 14px;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

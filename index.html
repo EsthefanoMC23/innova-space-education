@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Innova Space Education | Plataforma Educativa con IA</title>
+  <meta name="description" content="Plataforma educativa interactiva con inteligencia artificial, cursos y herramientas de aprendizaje modernas" />
+  
+  <!-- Favicon (asegúrate de tener estos archivos en tu directorio public/) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Preconexión para fuentes y recursos externos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Meta tags para SEO -->
+  <meta property="og:title" content="Innova Space Education" />
+  <meta property="og:description" content="Aprende con IA, cursos interactivos y herramientas educativas modernas" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://innovaspace.education" />
+  <meta property="og:image" content="/assets/images/social-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <!-- Configuración PWA -->
+  <meta name="theme-color" content="#0F172A" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Para compatibilidad con iOS -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Innova Space" />
+
+  <!-- Preload de recursos críticos -->
+  <link rel="preload" href="/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+  
+  <!-- Estilos críticos (opcional) -->
+  <style>
+    /* Fallback inicial mientras carga Tailwind */
+    body {
+      background-color: #0F172A;
+      color: #F1F5F9;
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    #root {
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body class="dark">
+  <div id="root"></div>
+
+  <!-- Script principal -->
+  <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Mensaje para usuarios sin JavaScript -->
+  <noscript>
+    <div style="position: fixed; inset: 0; background-color: #0F172A; color: white; display: flex; align-items: center; justify-content: center; padding: 2rem; text-align: center;">
+      <div>
+        <h1 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem;">JavaScript Requerido</h1>
+        <p style="font-size: 1.125rem;">Para disfrutar de Innova Space Education, por favor habilita JavaScript en tu navegador.</p>
+      </div>
+    </div>
+  </noscript>
+</body>
+</html>

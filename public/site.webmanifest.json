@@ -1,0 +1,14 @@
+{
+  "name": "Innova Space Education",
+  "short_name": "InnovaSpace",
+  "theme_color": "#0F172A",
+  "background_color": "#0F172A",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

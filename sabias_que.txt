@@ -1,0 +1,42 @@
+[
+  {
+    "texto": "La luz del Sol tarda aproximadamente 8 minutos y 20 segundos en llegar a la Tierra.",
+    "icono": "☀️",
+    "categoria": "Astronomía"
+  },
+  {
+    "texto": "El cerebro humano puede almacenar el equivalente a aproximadamente 2.5 petabytes de información.",
+    "icono": "🧠",
+    "categoria": "Ciencias"
+  },
+  {
+    "texto": "Chile tiene el récord del terremoto más fuerte jamás registrado: 9.5 grados en Valdivia en 1960.",
+    "icono": "🇨🇱",
+    "categoria": "Historia"
+  },
+  {
+    "texto": "El agua cubre aproximadamente el 71% de la superficie de la Tierra, pero solo el 2.5% es agua dulce.",
+    "icono": "🌊",
+    "categoria": "Geografía"
+  },
+  {
+    "texto": "Las abejas pueden reconocer rostros humanos, al igual que nosotros reconocemos los unos de los otros.",
+    "icono": "🐝",
+    "categoria": "Biología"
+  },
+  {
+    "texto": "El Monte Everest crece aproximadamente 4 milímetros cada año debido a los movimientos tectónicos.",
+    "icono": "🏔️",
+    "categoria": "Geología"
+  },
+  {
+    "texto": "El español es el segundo idioma más hablado en el mundo como lengua materna, después del chino mandarín.",
+    "icono": "🗣️",
+    "categoria": "Lenguaje"
+  },
+  {
+    "texto": "El desierto de Atacama en Chile es el lugar más seco de la Tierra, con zonas donde nunca se ha registrado lluvia.",
+    "icono": "🏜️",
+    "categoria": "Geografía"
+  }
+]

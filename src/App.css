@@ -1,0 +1,44 @@
+:root {
+  /* Colores base */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-dark: #0f172a;
+  --color-dark-light: #1e293b;
+  --color-light: #f8fafc;
+  --color-light-dark: #e2e8f0;
+  
+  /* Para el chatbot */
+  --chatbot-bg: #1e293b;
+  --chatbot-user: #3b82f6;
+  --chatbot-ai: #334155;
+  --chatbot-text: #f8fafc;
+  --chatbot-border: #475569;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,7 @@
+// data/dailyFacts.json
+{
+  "07-11": [
+    { "text": "Día Mundial de la Población", "type": "celebration" },
+    { "text": "En 1960, nació el primer láser", "type": "science" }
+  ]
+}

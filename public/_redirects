@@ -1,0 +1,8 @@
+# Habilita History API Fallback
+/*    /index.html   200
+
+# Opcional: Redirección desde la raíz a una ruta específica
+/    /home    302
+
+# Manejo de errores
+/404    /index.html   404

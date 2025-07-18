@@ -1,0 +1,51 @@
+import React, { useState, useEffect } from 'react'
+import data from '../data/sabias_que.json'
+import { FaVolumeUp, FaLightbulb } from 'react-icons/fa'
+
+export default function SabiasQue() {
+  const [dato, setDato] = useState(null)
+  const [isSpeaking, setIsSpeaking] = useState(false)
+
+  useEffect(() => {
+    const fecha = new Date().getDate()
+    const datoDelDia = data[fecha % data.length]
+    setDato(datoDelDia)
+  }, [])
+
+  const speak = () => {
+    if (!dato || isSpeaking) return
+    
+    setIsSpeaking(true)
+    const utterance = new SpeechSynthesisUtterance(dato.texto)
+    utterance.lang = 'es-ES'
+    utterance.onend = () => setIsSpeaking(false)
+    speechSynthesis.speak(utterance)
+  }
+
+  if (!dato) return null
+
+  return (
+    <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-8 border border-purple-300/20 shadow-lg animate-float">
+      <div className="flex items-center justify-between mb-3">
+        <h2 className="text-xl font-bold flex items-center gap-2">
+          <FaLightbulb className="text-yellow-300" />
+          ¿Sabías qué?
+        </h2>
+        <button 
+          onClick={speak} 
+          disabled={isSpeaking}
+          className={`p-2 rounded-full ${isSpeaking ? 'bg-purple-700' : 'bg-purple-600 hover:bg-purple-500'} transition-colors`}
+        >
+          <FaVolumeUp className="text-white" />
+        </button>
+      </div>
+      <div className="bg-black/20 p-4 rounded-lg">
+        <p className="text-lg">{dato.texto}</p>
+        <div className="mt-3 flex justify-between items-center">
+          <span className="text-sm text-purple-200">{dato.categoria}</span>
+          <span className="text-2xl">{dato.icono}</span>
+        </div>
+      </div>
+    </div>
+  )
+}

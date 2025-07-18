@@ -1,0 +1,45 @@
+import React from 'react'
+import Navbar from './components/Navbar'
+import SabiasQue from './components/SabiasQue'
+import Chatbot from './components/Chatbot'
+import MusicPlayer from './components/MusicPlayer'
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-950 to-purple-900 text-white">
+      {/* Barra de navegación */}
+      <Navbar />
+
+      {/* Contenido principal */}
+      <main className="container mx-auto px-4 py-8">
+        {/* Sección "Sabías que" */}
+        <section className="mb-12">
+          <SabiasQue />
+        </section>
+
+        {/* Espacio para futuros componentes educativos */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-purple-300/20">
+            <h2 className="text-2xl font-bold mb-4">Matemáticas</h2>
+            <p className="text-gray-200">Contenido educativo de matemáticas...</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-purple-300/20">
+            <h2 className="text-2xl font-bold mb-4">Ciencias</h2>
+            <p className="text-gray-200">Contenido educativo de ciencias...</p>
+          </div>
+        </section>
+      </main>
+
+      {/* Componentes fijos */}
+      <MusicPlayer />
+      <Chatbot />
+
+      {/* Footer */}
+      <footer className="bg-blue-900/50 py-4 text-center text-sm text-gray-300">
+        <p>© {new Date().getFullYear()} Innova Space Education - Plataforma educativa interactiva</p>
+      </footer>
+    </div>
+  )
+}
+
+export default App
